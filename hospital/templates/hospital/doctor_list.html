@@ -1,0 +1,28 @@
+
+<h1>Doctor List</h1>
+
+<a href="{% url 'patient_register' %}">
+    Register New Patient
+</a>
+
+<hr>
+
+{% for doctor in doctors %}
+
+    <h3>{{ doctor.name }}</h3>
+
+    <p>Specialization: {{ doctor.specialization }}</p>
+
+    <p>Email: {{ doctor.email }}</p>
+
+    <a href="{% url 'patient_list' %}?doctor_id={{ doctor.id }}">
+        View Patients
+    </a>
+
+    <hr>
+
+{% empty %}
+
+    <p>No doctors available.</p>
+
+{% endfor %}

@@ -1,0 +1,14 @@
+
+<h1>Patient Registration</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Register Patient</button>
+
+</form>
+
+<a href="{% url 'doctor_list' %}">Back to Doctors</a>

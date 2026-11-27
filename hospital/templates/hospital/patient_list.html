@@ -1,0 +1,34 @@
+
+<h1>Patient List</h1>
+
+<a href="{% url 'doctor_list' %}">View Doctors</a>
+
+<a href="{% url 'patient_register' %}">
+    Register Patient
+</a>
+
+<hr>
+
+{% if selected_doctor %}
+    <h2>Patients of {{ selected_doctor.name }}</h2>
+{% else %}
+    <h2>All Patients</h2>
+{% endif %}
+
+{% for patient in patients %}
+
+    <h3>{{ patient.name }}</h3>
+
+    <p>Age: {{ patient.age }}</p>
+
+    <p>Email: {{ patient.email }}</p>
+
+    <p>Doctor: {{ patient.doctor.name }}</p>
+
+    <hr>
+
+{% empty %}
+
+    <p>No patients found.</p>
+
+{% endfor %}
