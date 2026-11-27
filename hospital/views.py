@@ -49,3 +49,4 @@ def patient_register(request):
     return render(request, 'hospital/patient_register.html', {
         'form': form
     })
+
